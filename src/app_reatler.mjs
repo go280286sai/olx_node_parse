@@ -5,7 +5,9 @@ const run = async (url) => {
 console.time('timer');
 let obj = new Realter();
 await obj.getText(url);
-for(let i=2; i<=15; i++){
+for(let i=2; i<=20; i++){
+    setTimeout(()=>{}, 5000);
+    console.log(i);
     await obj.getText(url+prefix+i);
     if(i%5==0){
         obj.getObject();
@@ -14,14 +16,9 @@ for(let i=2; i<=15; i++){
     }
 }
 console.timeEnd('timer')
-let response = {
-    'status': 200
-};
+
     } catch{
         console.log('error')
     }
-
-// const url = "https://www.olx.ua/uk/nedvizhimost/kvartiry/kharkov/?currency=UAH";
-
 }
 export {run};
