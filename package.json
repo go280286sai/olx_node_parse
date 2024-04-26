@@ -21,7 +21,9 @@
   },
   "devDependencies": {
     "@types/node": "^20.12.7",
+    "chai": "^5.1.0",
     "globals": "^15.0.0",
-    "mocha": "^10.4.0"
+    "mocha": "^10.4.0",
+    "sinon": "^17.0.1"
   }
 }

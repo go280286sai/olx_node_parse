@@ -15,7 +15,7 @@ const run = async (url) => {
         }
 
     } catch {
-        console.log('error')
+        console.error
     }
 }
 export {run};
