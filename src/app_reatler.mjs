@@ -1,23 +1,20 @@
-import { Realter } from "./olx/Realter.mjs";
-const run = async (url) => {
-   const prefix = "&page="; 
-    try{
-console.time('timer');
-let obj = new Realter();
-await obj.getText(url);
-for(let i=2; i<=20; i++){
-    setTimeout(()=>{}, 5000);
-    console.log(i);
-    await obj.getText(url+prefix+i);
-    if(i%5==0){
-        obj.getObject();
-        obj.getSave(i);
-        obj = new Realter();
-    }
-}
-console.timeEnd('timer')
+import {Realter} from "./olx/Realter.mjs";
 
-    } catch{
+const run = async (url) => {
+    const prefix = "&page=";
+    try {
+        let obj = new Realter();
+        await obj.getUrls(url);
+        await obj.getUrl();
+        await obj.saveData(1);
+        for (let i = 2; i <= 25; i++) {
+            obj = new Realter();
+            await obj.getUrls(url+prefix+i);
+            await obj.getUrl();
+            await obj.saveData(i);
+        }
+
+    } catch {
         console.log('error')
     }
 }
